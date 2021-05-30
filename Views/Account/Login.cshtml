@@ -1,6 +1,6 @@
 ﻿@model LoginViewModel
-<div>
-    <h1>Вхід в особистий кабінет</h1>
+<div class="container">
+    <h2>Вхід в особистий кабінет</h2>
     <div class="div-box">
         <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
             <div asp-validation-summary="All"></div>
@@ -20,7 +20,7 @@
                 <span asp-validation-for="RememberMe"></span>
             </div>
             <div>
-                <input type="submit" value="Увійти" />
+                <input type="submit" class="button alt" value="Увійти" />
             </div>
         </form>
     </div>

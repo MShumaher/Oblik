@@ -12,9 +12,13 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\ServiceItems\" />
     <Folder Include="Areas\Admin\Views\TextFields\" />
-    <Folder Include="Areas\MainDoctor\" />
-    <Folder Include="Areas\Doctor\" />
-    <Folder Include="Models\ViewComponents\" />
+    <Folder Include="Areas\Doctor\Controllers\" />
+    <Folder Include="Areas\Doctor\Views\" />
+    <Folder Include="Areas\MainDoctor\Controllers\" />
+    <Folder Include="Areas\MainDoctor\Views\" />
+    <Folder Include="Areas\Reception\Views\" />
+    <Folder Include="Areas\Reception\Controllers\" />
+    <Folder Include="Views\Shared\Components\Sidebar\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\sass\" />
   </ItemGroup>
