@@ -3,14 +3,17 @@
 <head>
     @await Html.PartialAsync("MetatagsPartial")
     @await Html.PartialAsync("CssPartial")
+
     
 </head>
 <body class="is-preload">
     <div id="page-wrapper">
 
-        @await Html.PartialAsync("HeaderPartial")        
-        @await Html.PartialAsync("BannerPartial")
+        @await Html.PartialAsync("HeaderPartial")
+        
+        @RenderBody()
         @await Html.PartialAsync("HighlightsPartial")
+
 
         <!-- Gigantic Heading -->
         <section class="wrapper style2">
@@ -22,51 +25,7 @@
             </div>
         </section>
 
-        <!-- Posts -->
-        <section class="wrapper style1">
-            <div class="container">
-                <div class="row">
-                    <section class="col-6 col-12-narrower">
-                        <div class="box post">
-                            <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
-                            <div class="inner">
-                                <h3>The First Thing</h3>
-                                <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="col-6 col-12-narrower">
-                        <div class="box post">
-                            <a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
-                            <div class="inner">
-                                <h3>The Second Thing</h3>
-                                <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="row">
-                    <section class="col-6 col-12-narrower">
-                        <div class="box post">
-                            <a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
-                            <div class="inner">
-                                <h3>The Third Thing</h3>
-                                <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="col-6 col-12-narrower">
-                        <div class="box post">
-                            <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
-                            <div class="inner">
-                                <h3>The Fourth Thing</h3>
-                                <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </section>
+        
 
         <!-- CTA -->
         <section id="cta" class="wrapper style3">
@@ -82,6 +41,6 @@
     </div>
 
     @await Html.PartialAsync("ScriptsPartial")
-    @RenderBody()
+    
 </body>
 </html>
