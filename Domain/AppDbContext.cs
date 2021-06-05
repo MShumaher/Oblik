@@ -15,6 +15,7 @@ namespace Oblik.Domain
 
         public DbSet<TextField> TextFields { get; set; }
         public DbSet<ServiceItem> ServiceItems { get; set; }
+        public DbSet<Patient> Patients { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
