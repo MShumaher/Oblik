@@ -10,14 +10,12 @@ namespace Oblik.Domain
     {
         public ITextFieldsRepository TextFields { get; set; }
         public IServiceItemsRepository ServiceItems { get; set; }
-        public IPatientsRepository Patients { get; set; }
+       
 
-        public DataManager(ITextFieldsRepository textFieldsRepository, IServiceItemsRepository serviceItemsRepository, IPatientsRepository patientsRepository)
+        public DataManager(ITextFieldsRepository textFieldsRepository, IServiceItemsRepository serviceItemsRepository)
         {
             TextFields = textFieldsRepository;
-            ServiceItems = serviceItemsRepository;
-            Patients = patientsRepository;
-            
+            ServiceItems = serviceItemsRepository;                        
         }
     }
 }

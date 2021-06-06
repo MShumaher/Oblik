@@ -10,10 +10,7 @@ namespace Oblik.Domain.Repositories.Abstract
     {
         IQueryable<Patient> GetPatients();
         Patient GetPatientById(Guid id);
-        Patient GetPatientByCodeWord(string codeWord);
-        Patient GetPatientByTelNumb (int TelNumb);
         void SavePatient(Patient entity);
         void DeletePatient(Guid id);
-
     }
 }

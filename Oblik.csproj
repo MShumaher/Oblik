@@ -12,6 +12,8 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\ServiceItems\" />
     <Folder Include="Areas\Admin\Views\TextFields\" />
+    <Folder Include="Areas\Admin\Views\Doctors\" />
+    <Folder Include="Areas\Admin\Views\Patients\" />
     <Folder Include="Areas\Doctor\Controllers\" />
     <Folder Include="Areas\Doctor\Views\" />
     <Folder Include="Areas\MainDoctor\Controllers\" />

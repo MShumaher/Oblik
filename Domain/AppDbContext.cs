@@ -16,6 +16,8 @@ namespace Oblik.Domain
         public DbSet<TextField> TextFields { get; set; }
         public DbSet<ServiceItem> ServiceItems { get; set; }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -50,19 +52,25 @@ namespace Oblik.Domain
             {
                 Id = new Guid("EF86A70C-BE92-4255-BDA3-EE43B6FB401D"),
                 CodeWord = "PageIndex",
-                Title = "Главная"
+                Title = "Головна"
             });
             modelBuilder.Entity<TextField>().HasData(new TextField
             {
                 Id = new Guid("419AD9BA-4570-4325-80D6-EDFD965ACE14"),
                 CodeWord = "PageServices",
-                Title = "Наши услуги"
+                Title = "Послуги"
+            });
+            modelBuilder.Entity<TextField>().HasData(new TextField
+            {
+                Id = new Guid("832a6532-512f-44b0-bdab-fb913e0fda24"),
+                CodeWord = "PagePatients",
+                Title = "Пацієнти"
             });
             modelBuilder.Entity<TextField>().HasData(new TextField
             {
                 Id = new Guid("1E82FB54-C4F1-49D1-A229-3DDF578B8DDC"),
                 CodeWord = "PageContacts",
-                Title = "Контакты"
+                Title = "Контакти"
             });
         }
     }
