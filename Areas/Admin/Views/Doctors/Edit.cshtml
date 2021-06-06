@@ -1,0 +1,127 @@
+﻿@model Doctor
+@{
+    string strTitle = "Редагувати запис лікаря";
+    ViewBag.Title = strTitle;
+}
+
+<script src="~/js/ckeditor/ckeditor.js"></script>
+
+<div class="container">
+    <h2>@strTitle</h2>
+    <div>
+        <form asp-area="Admin" asp-controller="Doctors" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DateAdded" />
+            <input type="hidden" asp-for="TitleImagePath" />
+
+            <div asp-validation-summary="All"></div>
+            <div class="div-box">
+                <label asp-for="Surname"></label>
+                <input asp-for="Surname" />
+                <span asp-validation-for="Surname"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="FatherName"></label>
+                <textarea asp-for="FatherName"></textarea>
+                <span asp-validation-for="FatherName"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Prof"></label>
+                <textarea asp-for="Prof"></textarea>
+                <span asp-validation-for="Prof"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Sex"></label>
+                <textarea asp-for="Sex"></textarea>
+                <span asp-validation-for="Sex"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Birthday"></label>
+                <textarea asp-for="Birthday"></textarea>
+                <span asp-validation-for="Birthday"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="TelNumb"></label>
+                <textarea asp-for="TelNumb"></textarea>
+                <span asp-validation-for="TelNumb"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Email"></label>
+                <textarea asp-for="Email"></textarea>
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="BloodType"></label>
+                <textarea asp-for="BloodType"></textarea>
+                <span asp-validation-for="BloodType"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Rhesus"></label>
+                <textarea asp-for="Rhesus"></textarea>
+                <span asp-validation-for="Rhesus"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="DocumentType"></label>
+                <textarea asp-for="DocumentType"></textarea>
+                <span asp-validation-for="DocumentType"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="NumbDocument"></label>
+                <textarea asp-for="NumbDocument"></textarea>
+                <span asp-validation-for="NumbDocument"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="SerialDocument"></label>
+                <textarea asp-for="SerialDocument"></textarea>
+                <span asp-validation-for="SerialDocument"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for=" Rknopp"></label>
+                <textarea asp-for="Rknopp"></textarea>
+                <span asp-validation-for="Rknopp"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Text"></label>
+                <textarea asp-for="Text"></textarea>
+                <span asp-validation-for="Text"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="TitleImagePath"></label>
+                <input type="file" name="titleImageFile" id="titleImageFile" />
+                <div>
+                    <img class="img-block" src="~/images/@Model.TitleImagePath" />
+                </div>
+            </div>
+            <div class="div-box">
+                <label asp-for="MetaTitle"></label>
+                <input asp-for="MetaTitle" />
+                <span asp-validation-for="MetaTitle"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="MetaDescription"></label>
+                <input asp-for="MetaDescription" />
+                <span asp-validation-for="MetaDescription"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="MetaKeywords"></label>
+                <input asp-for="MetaKeywords" />
+                <span asp-validation-for="MetaKeywords"></span>
+            </div>
+            <input type="submit" value="Зберегти" />
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+    window.onload = function() {
+        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
+        newCKEdit.updateElement();
+    }
+</script>

@@ -1,27 +1,21 @@
-﻿@model IQueryable<ServiceItem>
-@{
-    TextField textField = ViewBag.TextField;
+﻿@model IQueryable<Doctor>
 
-    ViewBag.Keywords = textField.MetaKeywords;
-    ViewBag.Description = textField.MetaDescription;
-    ViewBag.Keywords = textField.MetaKeywords;
-}
 
 @if (Model.Any())
 {
-    foreach (ServiceItem entity in Model)
+    foreach (Doctor entity in Model)
     {
     <section class="wrapper style1">
         <div class="container">
             <div class="row">
                 <section class="col-6 col-12-narrower">
                     <div class="box post">
-                        <a class="image left" asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id">
+                        <a class="image left" asp-area="" asp-controller="DoctorServices" asp-action="Index" asp-route-id="@entity.Id">
                             <img src="/images/@entity.TitleImagePath" alt="" class="left" />
                         </a>
                         <div class="inner">
-                            <h3>@entity.Title</h3>
-                            <p>@entity.Subtitle</p>
+                            <h3>@entity.Surname</h3>
+                            <p>@entity.Name @entity.FatherName</p>
                         </div>
                     </div>
                 </section>

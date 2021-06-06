@@ -59,13 +59,7 @@ namespace Oblik.Domain
                 Id = new Guid("419AD9BA-4570-4325-80D6-EDFD965ACE14"),
                 CodeWord = "PageServices",
                 Title = "Послуги"
-            });
-            modelBuilder.Entity<TextField>().HasData(new TextField
-            {
-                Id = new Guid("832a6532-512f-44b0-bdab-fb913e0fda24"),
-                CodeWord = "PagePatients",
-                Title = "Пацієнти"
-            });
+            });                     
             modelBuilder.Entity<TextField>().HasData(new TextField
             {
                 Id = new Guid("1E82FB54-C4F1-49D1-A229-3DDF578B8DDC"),

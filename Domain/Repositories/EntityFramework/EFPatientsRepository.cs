@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Oblik.Domain.Repositories.EntityFramework
 {
+    
     public class EFPatientsRepository : IPatientsRepository
     {
         private readonly AppDbContext context;
