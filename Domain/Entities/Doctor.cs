@@ -9,8 +9,11 @@ namespace Oblik.Domain.Entities
     public class Doctor : Registration
     {
 
-        [Required(ErrorMessage = "Спеціалізація")]
+        [Required]
+        public int ProfID { get; set; }
+
+        //[Required(ErrorMessage = "Спеціалізація")]
         [Display(Name = "Спеціалізація:")]
-        public virtual string Prof { get; set; } = "сімейний лікар";
+        public Prof Prof { get; set; }
     }
 }

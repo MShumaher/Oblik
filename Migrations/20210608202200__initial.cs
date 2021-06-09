@@ -47,20 +47,20 @@ namespace Oblik.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Doctors",
+                name: "Patients",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Surname = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    FatherName = table.Column<string>(nullable: false),
+                    Surname = table.Column<string>(maxLength: 50, nullable: false),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    FatherName = table.Column<string>(maxLength: 50, nullable: false),
                     TitleImagePath = table.Column<string>(nullable: true),
                     Sex = table.Column<string>(nullable: false),
                     Birthday = table.Column<DateTime>(nullable: false),
                     TelNumb = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: true),
-                    BloodType = table.Column<string>(nullable: true),
-                    Rhesus = table.Column<string>(nullable: true),
+                    BloodType = table.Column<int>(nullable: true),
+                    Rhesus = table.Column<string>(maxLength: 1, nullable: true),
                     DocumentType = table.Column<string>(nullable: true),
                     NumbDocument = table.Column<int>(nullable: false),
                     SerialDocument = table.Column<string>(nullable: true),
@@ -70,41 +70,25 @@ namespace Oblik.Migrations
                     MetaDescription = table.Column<string>(nullable: true),
                     MetaKeywords = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false),
-                    Prof = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Doctors", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Patients",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    Surname = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    FatherName = table.Column<string>(nullable: false),
-                    TitleImagePath = table.Column<string>(nullable: true),
-                    Sex = table.Column<string>(nullable: false),
-                    Birthday = table.Column<DateTime>(nullable: false),
-                    TelNumb = table.Column<int>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
-                    BloodType = table.Column<string>(nullable: true),
-                    Rhesus = table.Column<string>(nullable: true),
-                    DocumentType = table.Column<string>(nullable: true),
-                    NumbDocument = table.Column<int>(nullable: false),
-                    SerialDocument = table.Column<string>(nullable: true),
-                    Rknopp = table.Column<int>(nullable: false),
-                    Text = table.Column<string>(nullable: true),
-                    MetaTitle = table.Column<string>(nullable: true),
-                    MetaDescription = table.Column<string>(nullable: true),
-                    MetaKeywords = table.Column<string>(nullable: true),
-                    DateAdded = table.Column<DateTime>(nullable: false)
+                    Specialization = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Patients", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Profs",
+                columns: table => new
+                {
+                    ProfId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProfName = table.Column<string>(maxLength: 50, nullable: true),
+                    DateAdded = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Profs", x => x.ProfId);
                 });
 
             migrationBuilder.CreateTable(
@@ -252,24 +236,61 @@ namespace Oblik.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Doctors",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Surname = table.Column<string>(maxLength: 50, nullable: false),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    FatherName = table.Column<string>(maxLength: 50, nullable: false),
+                    TitleImagePath = table.Column<string>(nullable: true),
+                    Sex = table.Column<string>(nullable: false),
+                    Birthday = table.Column<DateTime>(nullable: false),
+                    TelNumb = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    BloodType = table.Column<int>(nullable: true),
+                    Rhesus = table.Column<string>(maxLength: 1, nullable: true),
+                    DocumentType = table.Column<string>(nullable: true),
+                    NumbDocument = table.Column<int>(nullable: false),
+                    SerialDocument = table.Column<string>(nullable: true),
+                    Rknopp = table.Column<int>(nullable: false),
+                    Text = table.Column<string>(nullable: true),
+                    MetaTitle = table.Column<string>(nullable: true),
+                    MetaDescription = table.Column<string>(nullable: true),
+                    MetaKeywords = table.Column<string>(nullable: true),
+                    DateAdded = table.Column<DateTime>(nullable: false),
+                    ProfID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Doctors", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Doctors_Profs_ProfID",
+                        column: x => x.ProfID,
+                        principalTable: "Profs",
+                        principalColumn: "ProfId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "5CB180AC-1325-444F-8177-D9A517162427", "d3cd59ea-cf41-4bc7-a692-e9f66a2d8b73", "admin", "ADMIN" });
+                values: new object[] { "5CB180AC-1325-444F-8177-D9A517162427", "4e303385-75dd-4e91-b6d0-f636fc224628", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "52D5A142-F7A2-428E-A603-3AFDC8C79206", 0, "33f7e29d-00ee-45af-a99d-e262046515f2", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEDrzgJTjgBQsr3CeJ/378H+S+N52aK1XmrKanPOqO8An1ZRG3Iju0nhhugXVPtRJeA==", null, false, "", false, "admin" });
+                values: new object[] { "52D5A142-F7A2-428E-A603-3AFDC8C79206", 0, "c2e159e0-8950-4224-aad5-1ee9fa376cd4", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEJcVs036NGKfGcbhyeYW8m9WVAgyL/SZbJsdtfH8RtJwoOPACyJ0HKT9dU7ymgp8DA==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "TextFields",
                 columns: new[] { "Id", "CodeWord", "DateAdded", "MetaDescription", "MetaKeywords", "MetaTitle", "Subtitle", "Text", "Title", "TitleImagePath" },
                 values: new object[,]
                 {
-                    { new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"), "PageIndex", new DateTime(2021, 6, 6, 18, 46, 55, 14, DateTimeKind.Local).AddTicks(1170), null, null, null, null, "Содержание заполняется администратором", "Головна", null },
-                    { new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"), "PageServices", new DateTime(2021, 6, 6, 18, 46, 55, 15, DateTimeKind.Local).AddTicks(323), null, null, null, null, "Содержание заполняется администратором", "Послуги", null },
-                    { new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"), "PageContacts", new DateTime(2021, 6, 6, 18, 46, 55, 15, DateTimeKind.Local).AddTicks(392), null, null, null, null, "Содержание заполняется администратором", "Контакти", null }
+                    { new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"), "PageIndex", new DateTime(2021, 6, 8, 23, 22, 0, 301, DateTimeKind.Local).AddTicks(5048), null, null, null, null, "Содержание заполняется администратором", "Головна", null },
+                    { new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"), "PageServices", new DateTime(2021, 6, 8, 23, 22, 0, 302, DateTimeKind.Local).AddTicks(6551), null, null, null, null, "Содержание заполняется администратором", "Послуги", null },
+                    { new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"), "PageContacts", new DateTime(2021, 6, 8, 23, 22, 0, 302, DateTimeKind.Local).AddTicks(6621), null, null, null, null, "Содержание заполняется администратором", "Контакти", null }
                 });
 
             migrationBuilder.InsertData(
@@ -315,6 +336,11 @@ namespace Oblik.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Doctors_ProfID",
+                table: "Doctors",
+                column: "ProfID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -351,6 +377,9 @@ namespace Oblik.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Profs");
         }
     }
 }
