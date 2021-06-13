@@ -21,14 +21,14 @@ namespace Oblik.Domain.Repositories.EntityFramework
             return context.Profs;
         }
 
-        public Prof GetProfById(int id)
+        public Prof GetProfById(Guid id)
         {
-            return context.Profs.FirstOrDefault(x => x.ProfId == id);
+            return context.Profs.FirstOrDefault(x => x.ProfID == id);
         }
 
         public void SaveProf(Prof entity)
         {
-            if (entity.ProfId == default)
+            if (entity.ProfID == default)
                 context.Entry(entity).State = EntityState.Added;
             else
                 context.Entry(entity).State = EntityState.Modified;

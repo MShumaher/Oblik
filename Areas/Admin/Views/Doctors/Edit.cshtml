@@ -34,7 +34,7 @@
                 <label asp-for="ProfID"></label>
                 <textarea asp-for="ProfID"></textarea>
                 <span asp-validation-for="ProfID"></span>
-
+                <select asp-for="ProfID" asp-items="ViewBag.Profs"></select>
             </div>
             <div class="div-box">
                 <label asp-for="Sex"></label>

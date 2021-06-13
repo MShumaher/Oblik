@@ -10,7 +10,7 @@ namespace Oblik.Domain.Entities
     {
 
         [Required]
-        public int ProfID { get; set; }
+        public Guid ProfID { get; set; }
 
         //[Required(ErrorMessage = "Спеціалізація")]
         [Display(Name = "Спеціалізація:")]

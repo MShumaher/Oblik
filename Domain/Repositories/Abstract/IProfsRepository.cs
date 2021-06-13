@@ -9,7 +9,7 @@ namespace Oblik.Domain.Repositories.Abstract
     public interface IProfsRepository
     {
         IQueryable<Prof> GetProfs();
-        Prof GetProfById(int id);
+        Prof GetProfById(Guid id);
         void SaveProf(Prof entity);
     }
 }

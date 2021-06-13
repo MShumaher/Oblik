@@ -49,7 +49,7 @@ namespace Oblik.Migrations
                         new
                         {
                             Id = "5CB180AC-1325-444F-8177-D9A517162427",
-                            ConcurrencyStamp = "a80c0caa-bba0-4f3d-9470-999d9c6f0439",
+                            ConcurrencyStamp = "94cd9ef9-47c9-47c9-8820-bfab75f48868",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -148,13 +148,13 @@ namespace Oblik.Migrations
                         {
                             Id = "52D5A142-F7A2-428E-A603-3AFDC8C79206",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8c82d506-b013-4ebb-9670-c24140a50d6c",
+                            ConcurrencyStamp = "543fbe0f-7e17-4775-a0a5-b3cbb1f424a4",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAjeXb8VnN0EXUcHL1vyWjPCgd/DkFc6TfXk4xXqp9R8z9Vv5MICCIWdmn7c7tHQCQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECfou8ljo21I8aJ3MFrA078g63cRAGuNsZFPVfHJVp3ZFxkD74h1gAxLQ2Gds2kZ1A==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -294,8 +294,8 @@ namespace Oblik.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<int>("ProfID")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ProfID")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Rhesus")
                         .HasColumnType("nvarchar(1)")
@@ -396,9 +396,6 @@ namespace Oblik.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Specialization")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -421,19 +418,15 @@ namespace Oblik.Migrations
 
             modelBuilder.Entity("Oblik.Domain.Entities.Prof", b =>
                 {
-                    b.Property<int>("ProfId")
+                    b.Property<Guid>("ProfID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateAdded")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ProfName")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.HasKey("ProfId");
+                    b.HasKey("ProfID");
 
                     b.ToTable("Profs");
                 });
@@ -517,7 +510,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 21, DateTimeKind.Local).AddTicks(1254),
+                            DateAdded = new DateTime(2021, 6, 13, 20, 54, 9, 974, DateTimeKind.Local).AddTicks(2350),
                             Text = "Содержание заполняется администратором",
                             Title = "Головна"
                         },
@@ -525,7 +518,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3676),
+                            DateAdded = new DateTime(2021, 6, 13, 20, 54, 9, 975, DateTimeKind.Local).AddTicks(6879),
                             Text = "Содержание заполняется администратором",
                             Title = "Послуги"
                         },
@@ -533,7 +526,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3749),
+                            DateAdded = new DateTime(2021, 6, 13, 20, 54, 9, 975, DateTimeKind.Local).AddTicks(6956),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакти"
                         });

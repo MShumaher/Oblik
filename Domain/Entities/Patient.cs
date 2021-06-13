@@ -8,10 +8,6 @@ namespace Oblik.Domain.Entities
 {
     public class Patient : Registration
     {
-        [Required]
-        public Guid Id { get; set; }
-
-        [Display(Name = "Название (заголовок)")]
-        public virtual string Specialization { get; set; }
+       
     }
 }

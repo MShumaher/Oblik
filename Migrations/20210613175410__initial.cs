@@ -69,8 +69,7 @@ namespace Oblik.Migrations
                     MetaTitle = table.Column<string>(nullable: true),
                     MetaDescription = table.Column<string>(nullable: true),
                     MetaKeywords = table.Column<string>(nullable: true),
-                    DateAdded = table.Column<DateTime>(nullable: false),
-                    Specialization = table.Column<string>(nullable: true)
+                    DateAdded = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,14 +80,12 @@ namespace Oblik.Migrations
                 name: "Profs",
                 columns: table => new
                 {
-                    ProfId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProfName = table.Column<string>(maxLength: 50, nullable: true),
-                    DateAdded = table.Column<DateTime>(nullable: false)
+                    ProfID = table.Column<Guid>(nullable: false),
+                    ProfName = table.Column<string>(maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Profs", x => x.ProfId);
+                    table.PrimaryKey("PK_Profs", x => x.ProfID);
                 });
 
             migrationBuilder.CreateTable(
@@ -260,7 +257,7 @@ namespace Oblik.Migrations
                     MetaDescription = table.Column<string>(nullable: true),
                     MetaKeywords = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false),
-                    ProfID = table.Column<int>(nullable: false)
+                    ProfID = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -269,28 +266,28 @@ namespace Oblik.Migrations
                         name: "FK_Doctors_Profs_ProfID",
                         column: x => x.ProfID,
                         principalTable: "Profs",
-                        principalColumn: "ProfId",
+                        principalColumn: "ProfID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "5CB180AC-1325-444F-8177-D9A517162427", "a80c0caa-bba0-4f3d-9470-999d9c6f0439", "admin", "ADMIN" });
+                values: new object[] { "5CB180AC-1325-444F-8177-D9A517162427", "94cd9ef9-47c9-47c9-8820-bfab75f48868", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "52D5A142-F7A2-428E-A603-3AFDC8C79206", 0, "8c82d506-b013-4ebb-9670-c24140a50d6c", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEAjeXb8VnN0EXUcHL1vyWjPCgd/DkFc6TfXk4xXqp9R8z9Vv5MICCIWdmn7c7tHQCQ==", null, false, "", false, "admin" });
+                values: new object[] { "52D5A142-F7A2-428E-A603-3AFDC8C79206", 0, "543fbe0f-7e17-4775-a0a5-b3cbb1f424a4", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECfou8ljo21I8aJ3MFrA078g63cRAGuNsZFPVfHJVp3ZFxkD74h1gAxLQ2Gds2kZ1A==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "TextFields",
                 columns: new[] { "Id", "CodeWord", "DateAdded", "MetaDescription", "MetaKeywords", "MetaTitle", "Subtitle", "Text", "Title", "TitleImagePath" },
                 values: new object[,]
                 {
-                    { new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"), "PageIndex", new DateTime(2021, 6, 13, 14, 24, 51, 21, DateTimeKind.Local).AddTicks(1254), null, null, null, null, "Содержание заполняется администратором", "Головна", null },
-                    { new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"), "PageServices", new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3676), null, null, null, null, "Содержание заполняется администратором", "Послуги", null },
-                    { new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"), "PageContacts", new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3749), null, null, null, null, "Содержание заполняется администратором", "Контакти", null }
+                    { new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"), "PageIndex", new DateTime(2021, 6, 13, 20, 54, 9, 974, DateTimeKind.Local).AddTicks(2350), null, null, null, null, "Содержание заполняется администратором", "Головна", null },
+                    { new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"), "PageServices", new DateTime(2021, 6, 13, 20, 54, 9, 975, DateTimeKind.Local).AddTicks(6879), null, null, null, null, "Содержание заполняется администратором", "Послуги", null },
+                    { new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"), "PageContacts", new DateTime(2021, 6, 13, 20, 54, 9, 975, DateTimeKind.Local).AddTicks(6956), null, null, null, null, "Содержание заполняется администратором", "Контакти", null }
                 });
 
             migrationBuilder.InsertData(
