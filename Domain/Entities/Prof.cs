@@ -21,6 +21,6 @@ namespace Oblik.Domain.Entities
         [DataType(DataType.Time)]//дата створення сутності
         public DateTime DateAdded { get; set; }
 
-        public ICollection<Doctor> Doctors { get; set; }
+        public IEnumerable<Doctor> Doctors { get; set; }
     }
 }

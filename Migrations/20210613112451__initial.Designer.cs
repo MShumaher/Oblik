@@ -10,7 +10,7 @@ using Oblik.Domain;
 namespace Oblik.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210608202200__initial")]
+    [Migration("20210613112451__initial")]
     partial class _initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace Oblik.Migrations
                         new
                         {
                             Id = "5CB180AC-1325-444F-8177-D9A517162427",
-                            ConcurrencyStamp = "4e303385-75dd-4e91-b6d0-f636fc224628",
+                            ConcurrencyStamp = "a80c0caa-bba0-4f3d-9470-999d9c6f0439",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -150,13 +150,13 @@ namespace Oblik.Migrations
                         {
                             Id = "52D5A142-F7A2-428E-A603-3AFDC8C79206",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c2e159e0-8950-4224-aad5-1ee9fa376cd4",
+                            ConcurrencyStamp = "8c82d506-b013-4ebb-9670-c24140a50d6c",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJcVs036NGKfGcbhyeYW8m9WVAgyL/SZbJsdtfH8RtJwoOPACyJ0HKT9dU7ymgp8DA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAjeXb8VnN0EXUcHL1vyWjPCgd/DkFc6TfXk4xXqp9R8z9Vv5MICCIWdmn7c7tHQCQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -267,7 +267,8 @@ namespace Oblik.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DocumentType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -291,8 +292,9 @@ namespace Oblik.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("NumbDocument")
-                        .HasColumnType("int");
+                    b.Property<string>("NumbDocument")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<int>("ProfID")
                         .HasColumnType("int");
@@ -301,11 +303,13 @@ namespace Oblik.Migrations
                         .HasColumnType("nvarchar(1)")
                         .HasMaxLength(1);
 
-                    b.Property<int>("Rknopp")
-                        .HasColumnType("int");
+                    b.Property<string>("Rknopp")
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
 
                     b.Property<string>("SerialDocument")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(4)")
+                        .HasMaxLength(4);
 
                     b.Property<string>("Sex")
                         .IsRequired()
@@ -316,8 +320,9 @@ namespace Oblik.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("TelNumb")
-                        .HasColumnType("int");
+                    b.Property<string>("TelNumb")
+                        .HasColumnType("nvarchar(9)")
+                        .HasMaxLength(9);
 
                     b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
@@ -348,7 +353,8 @@ namespace Oblik.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DocumentType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -372,18 +378,21 @@ namespace Oblik.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("NumbDocument")
-                        .HasColumnType("int");
+                    b.Property<string>("NumbDocument")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.Property<string>("Rhesus")
                         .HasColumnType("nvarchar(1)")
                         .HasMaxLength(1);
 
-                    b.Property<int>("Rknopp")
-                        .HasColumnType("int");
+                    b.Property<string>("Rknopp")
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
 
                     b.Property<string>("SerialDocument")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(4)")
+                        .HasMaxLength(4);
 
                     b.Property<string>("Sex")
                         .IsRequired()
@@ -397,8 +406,9 @@ namespace Oblik.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("TelNumb")
-                        .HasColumnType("int");
+                    b.Property<string>("TelNumb")
+                        .HasColumnType("nvarchar(9)")
+                        .HasMaxLength(9);
 
                     b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
@@ -509,7 +519,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2021, 6, 8, 23, 22, 0, 301, DateTimeKind.Local).AddTicks(5048),
+                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 21, DateTimeKind.Local).AddTicks(1254),
                             Text = "Содержание заполняется администратором",
                             Title = "Головна"
                         },
@@ -517,7 +527,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2021, 6, 8, 23, 22, 0, 302, DateTimeKind.Local).AddTicks(6551),
+                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3676),
                             Text = "Содержание заполняется администратором",
                             Title = "Послуги"
                         },
@@ -525,7 +535,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2021, 6, 8, 23, 22, 0, 302, DateTimeKind.Local).AddTicks(6621),
+                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3749),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакти"
                         });

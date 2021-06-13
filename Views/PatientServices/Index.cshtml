@@ -13,10 +13,12 @@
                             <a class="image left" asp-area="" asp-controller="PatientServices" asp-action="Index" asp-route-id="@entity.Id">
                                 <img src="/images/@entity.TitleImagePath" alt="" class="left" />
                             </a>
-                            <div class="inner">
-                                <h3>@entity.Surname</h3>
-                                <p>@entity.Name @entity.FatherName</p>
-                            </div>
+                            <a asp-area="" asp-controller="PatientServices" asp-action="Index" asp-route-id="@entity.Id">
+                                <div class="inner">
+                                    <h3>@entity.Surname</h3>
+                                    <p>@entity.Name @entity.FatherName</p>
+                                </div>
+                            </a>
                         </div>
                     </section>
                 </div>

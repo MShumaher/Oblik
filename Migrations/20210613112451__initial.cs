@@ -57,14 +57,14 @@ namespace Oblik.Migrations
                     TitleImagePath = table.Column<string>(nullable: true),
                     Sex = table.Column<string>(nullable: false),
                     Birthday = table.Column<DateTime>(nullable: false),
-                    TelNumb = table.Column<int>(nullable: false),
+                    TelNumb = table.Column<string>(maxLength: 9, nullable: true),
                     Email = table.Column<string>(nullable: true),
                     BloodType = table.Column<int>(nullable: true),
                     Rhesus = table.Column<string>(maxLength: 1, nullable: true),
-                    DocumentType = table.Column<string>(nullable: true),
-                    NumbDocument = table.Column<int>(nullable: false),
-                    SerialDocument = table.Column<string>(nullable: true),
-                    Rknopp = table.Column<int>(nullable: false),
+                    DocumentType = table.Column<string>(maxLength: 30, nullable: true),
+                    NumbDocument = table.Column<string>(maxLength: 20, nullable: true),
+                    SerialDocument = table.Column<string>(maxLength: 4, nullable: true),
+                    Rknopp = table.Column<string>(maxLength: 10, nullable: true),
                     Text = table.Column<string>(nullable: true),
                     MetaTitle = table.Column<string>(nullable: true),
                     MetaDescription = table.Column<string>(nullable: true),
@@ -247,14 +247,14 @@ namespace Oblik.Migrations
                     TitleImagePath = table.Column<string>(nullable: true),
                     Sex = table.Column<string>(nullable: false),
                     Birthday = table.Column<DateTime>(nullable: false),
-                    TelNumb = table.Column<int>(nullable: false),
+                    TelNumb = table.Column<string>(maxLength: 9, nullable: true),
                     Email = table.Column<string>(nullable: true),
                     BloodType = table.Column<int>(nullable: true),
                     Rhesus = table.Column<string>(maxLength: 1, nullable: true),
-                    DocumentType = table.Column<string>(nullable: true),
-                    NumbDocument = table.Column<int>(nullable: false),
-                    SerialDocument = table.Column<string>(nullable: true),
-                    Rknopp = table.Column<int>(nullable: false),
+                    DocumentType = table.Column<string>(maxLength: 30, nullable: true),
+                    NumbDocument = table.Column<string>(maxLength: 20, nullable: true),
+                    SerialDocument = table.Column<string>(maxLength: 4, nullable: true),
+                    Rknopp = table.Column<string>(maxLength: 10, nullable: true),
                     Text = table.Column<string>(nullable: true),
                     MetaTitle = table.Column<string>(nullable: true),
                     MetaDescription = table.Column<string>(nullable: true),
@@ -276,21 +276,21 @@ namespace Oblik.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "5CB180AC-1325-444F-8177-D9A517162427", "4e303385-75dd-4e91-b6d0-f636fc224628", "admin", "ADMIN" });
+                values: new object[] { "5CB180AC-1325-444F-8177-D9A517162427", "a80c0caa-bba0-4f3d-9470-999d9c6f0439", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "52D5A142-F7A2-428E-A603-3AFDC8C79206", 0, "c2e159e0-8950-4224-aad5-1ee9fa376cd4", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEJcVs036NGKfGcbhyeYW8m9WVAgyL/SZbJsdtfH8RtJwoOPACyJ0HKT9dU7ymgp8DA==", null, false, "", false, "admin" });
+                values: new object[] { "52D5A142-F7A2-428E-A603-3AFDC8C79206", 0, "8c82d506-b013-4ebb-9670-c24140a50d6c", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEAjeXb8VnN0EXUcHL1vyWjPCgd/DkFc6TfXk4xXqp9R8z9Vv5MICCIWdmn7c7tHQCQ==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "TextFields",
                 columns: new[] { "Id", "CodeWord", "DateAdded", "MetaDescription", "MetaKeywords", "MetaTitle", "Subtitle", "Text", "Title", "TitleImagePath" },
                 values: new object[,]
                 {
-                    { new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"), "PageIndex", new DateTime(2021, 6, 8, 23, 22, 0, 301, DateTimeKind.Local).AddTicks(5048), null, null, null, null, "Содержание заполняется администратором", "Головна", null },
-                    { new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"), "PageServices", new DateTime(2021, 6, 8, 23, 22, 0, 302, DateTimeKind.Local).AddTicks(6551), null, null, null, null, "Содержание заполняется администратором", "Послуги", null },
-                    { new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"), "PageContacts", new DateTime(2021, 6, 8, 23, 22, 0, 302, DateTimeKind.Local).AddTicks(6621), null, null, null, null, "Содержание заполняется администратором", "Контакти", null }
+                    { new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"), "PageIndex", new DateTime(2021, 6, 13, 14, 24, 51, 21, DateTimeKind.Local).AddTicks(1254), null, null, null, null, "Содержание заполняется администратором", "Головна", null },
+                    { new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"), "PageServices", new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3676), null, null, null, null, "Содержание заполняется администратором", "Послуги", null },
+                    { new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"), "PageContacts", new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3749), null, null, null, null, "Содержание заполняется администратором", "Контакти", null }
                 });
 
             migrationBuilder.InsertData(

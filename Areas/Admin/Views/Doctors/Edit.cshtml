@@ -34,16 +34,19 @@
                 <label asp-for="ProfID"></label>
                 <textarea asp-for="ProfID"></textarea>
                 <span asp-validation-for="ProfID"></span>
+
             </div>
             <div class="div-box">
                 <label asp-for="Sex"></label>
-                <textarea asp-for="Sex"></textarea>
-                <span asp-validation-for="Sex"></span>
+                @Html.RadioButton("Sex", "Чоловік")
+                <span>Чоловік</span>
+                @Html.RadioButton("Sex", "Жінка")
+                <span>Жінка</span> <br />
             </div>
             <div class="div-box">
                 <label asp-for="Birthday"></label>
                 <textarea asp-for="Birthday"></textarea>
-                <span asp-validation-for="Birthday"></span>
+                <span asp-validation-for="Birthday"></span>           
             </div>
             <div class="div-box">
                 <label asp-for="TelNumb"></label>
@@ -57,8 +60,8 @@
             </div>
             <div class="div-box">
                 <label asp-for="BloodType"></label>
-                <textarea asp-for="BloodType"></textarea>
-                <span asp-validation-for="BloodType"></span>
+                @Html.DropDownList("BloodType", Html.GetEnumSelectList(typeof(BloodType)))
+                <br />
             </div>
             <div class="div-box">
                 <label asp-for="Rhesus"></label>
@@ -67,8 +70,31 @@
             </div>
             <div class="div-box">
                 <label asp-for="DocumentType"></label>
-                <textarea asp-for="DocumentType"></textarea>
-                <span asp-validation-for="DocumentType"></span>
+                <h4>=====Паспорт=====</h4>
+                @Html.RadioButton("DocumentType", "Паспорт громадянина України")<span>Паспорт громадянина України</span>
+                @Html.RadioButton("DocumentType", "Паспорт громадянина України для виїзду за кордон")<span>Паспорт громадянина України для виїзду за кордон</span>
+                @Html.RadioButton("DocumentType", "Дипломатичний паспорт України")<span>Дипломатичний паспорт України</span><br />
+
+                @Html.RadioButton("DocumentType", "Службовий паспорт України")<span>Службовий паспорт України</span><br />
+                <h4>=====Посвідчення=====</h4>
+                @Html.RadioButton("DocumentType", "Посвідчення особи моряка")<span>Посвідчення особи моряка</span>
+                @Html.RadioButton("DocumentType", "Посвідчення члена екіпажу")<span>Посвідчення члена екіпажу</span><br />
+
+                @Html.RadioButton("DocumentType", "Посвідчення особи на повернення в Україну")<span>Посвідчення особи на повернення в Україну</span>
+                @Html.RadioButton("DocumentType", "Тимчасове посвідчення громадянина України")<span>Тимчасове посвідчення громадянина України</span>
+                @Html.RadioButton("DocumentType", "Посвідчення водія")<span>Посвідчення водія</span><br />
+
+                @Html.RadioButton("DocumentType", "Посвідчення особи без громадянства для виїзду за кордон")<span>Посвідчення особи без громадянства для виїзду за кордон</span><br />
+                <h4>=====Посвідки=====</h4>
+                @Html.RadioButton("DocumentType", "Посвідка на постійне проживання")<span>Посвідка на постійне проживання</span><br />
+                @Html.RadioButton("DocumentType", "Посвідка на тимчасове проживання")<span>Посвідка на тимчасове проживання</span>
+                @Html.RadioButton("DocumentType", "Картка мігранта")<span>Картка мігранта</span>
+                @Html.RadioButton("DocumentType", "Посвідчення біженця")<span>Посвідчення біженця</span>
+                @Html.RadioButton("DocumentType", "Проїзний документ біженця")<span>Проїзний документ біженця</span><br />
+
+                @Html.RadioButton("DocumentType", "Посвідчення особи, яка потребує додаткового захисту")<span>Посвідчення особи, яка потребує додаткового захисту</span>
+                @Html.RadioButton("DocumentType", "Проїзний документ особи, якій надано додатковий захист")<span>Проїзний документ особи, якій надано додатковий захист</span><br />
+
             </div>
             <div class="div-box">
                 <label asp-for="NumbDocument"></label>
