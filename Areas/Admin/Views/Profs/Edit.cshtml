@@ -9,15 +9,15 @@
     <div>
         <form asp-area="Admin" asp-controller="Profs" asp-action="Edit" method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="ProfID" />
-            <input type="hidden" asp-for="ProfName" />
-           
+
             <div asp-validation-summary="All"></div>
             <div class="div-box">
                 <label asp-for="ProfName"></label>
                 <input asp-for="ProfName" />
                 <span asp-validation-for="ProfName"></span>
             </div>
-            
+            <input type="hidden" asp-for="DateAdded" />
+
             <input type="submit" value="Зберегти" />
         </form>
     </div>

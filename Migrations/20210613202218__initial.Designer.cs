@@ -10,7 +10,7 @@ using Oblik.Domain;
 namespace Oblik.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210613175410__initial")]
+    [Migration("20210613202218__initial")]
     partial class _initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace Oblik.Migrations
                         new
                         {
                             Id = "5CB180AC-1325-444F-8177-D9A517162427",
-                            ConcurrencyStamp = "94cd9ef9-47c9-47c9-8820-bfab75f48868",
+                            ConcurrencyStamp = "d274e226-89c8-402b-94d8-de33e36c47f8",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -150,13 +150,13 @@ namespace Oblik.Migrations
                         {
                             Id = "52D5A142-F7A2-428E-A603-3AFDC8C79206",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "543fbe0f-7e17-4775-a0a5-b3cbb1f424a4",
+                            ConcurrencyStamp = "5cea0b75-b342-4e5c-9057-aa1301ec4fe9",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAECfou8ljo21I8aJ3MFrA078g63cRAGuNsZFPVfHJVp3ZFxkD74h1gAxLQ2Gds2kZ1A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECxu0tUMoZ7j6/z35NvPMwx/nE97CNf7SPkl91tsQvTO3cFI1Gg7yjSiEqtM3xx1eA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -424,6 +424,9 @@ namespace Oblik.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ProfName")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
@@ -512,7 +515,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2021, 6, 13, 20, 54, 9, 974, DateTimeKind.Local).AddTicks(2350),
+                            DateAdded = new DateTime(2021, 6, 13, 23, 22, 18, 180, DateTimeKind.Local).AddTicks(2754),
                             Text = "Содержание заполняется администратором",
                             Title = "Головна"
                         },
@@ -520,7 +523,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2021, 6, 13, 20, 54, 9, 975, DateTimeKind.Local).AddTicks(6879),
+                            DateAdded = new DateTime(2021, 6, 13, 23, 22, 18, 181, DateTimeKind.Local).AddTicks(6365),
                             Text = "Содержание заполняется администратором",
                             Title = "Послуги"
                         },
@@ -528,7 +531,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2021, 6, 13, 20, 54, 9, 975, DateTimeKind.Local).AddTicks(6956),
+                            DateAdded = new DateTime(2021, 6, 13, 23, 22, 18, 181, DateTimeKind.Local).AddTicks(6437),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакти"
                         });

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Oblik.Domain.Entities
 {
-    public class Prof
+    public class Prof:DateAdd
     {
         [Required]
         [Key]
@@ -15,7 +15,7 @@ namespace Oblik.Domain.Entities
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Не може бути довшим за 50 символів та меншим 3!")]
         [Display(Name = "Спеціалізація")]
         public virtual string ProfName { get; set; }
-
+                
         public ICollection<Doctor> Doctors { get; set; }
     }
 }
