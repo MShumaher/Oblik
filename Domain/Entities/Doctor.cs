@@ -18,5 +18,8 @@ namespace Oblik.Domain.Entities
         //[Required(ErrorMessage = "Спеціалізація")]
         [Display(Name = "Спеціалізація:")]
         public Prof Prof { get; set; }
+
+        public ICollection<Visit> Visits { get; set; }
+
     }
 }

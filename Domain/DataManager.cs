@@ -13,18 +13,18 @@ namespace Oblik.Domain
         public IDoctorsRepository Doctors { get; set; }
         public IPatientsRepository Patients { get; set; }
         public IProfsRepository Profs { get; set; }
-        
-                
+        public IVisitsRepository Visits { get; set; }
 
         public DataManager(ITextFieldsRepository textFieldsRepository, IServiceItemsRepository serviceItemsRepository, 
-            IDoctorsRepository doctorsRepository, IPatientsRepository patientsRepository, IProfsRepository profsRepository)
+            IDoctorsRepository doctorsRepository, IPatientsRepository patientsRepository, IProfsRepository profsRepository,
+            IVisitsRepository visitsRepository)
         {
             TextFields = textFieldsRepository;
             ServiceItems = serviceItemsRepository;
             Patients = patientsRepository;
             Doctors = doctorsRepository;
             Profs = profsRepository;
-
+            Visits = visitsRepository;
             
         }
     }

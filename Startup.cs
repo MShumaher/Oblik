@@ -34,6 +34,7 @@ namespace Oblik
             services.AddTransient<IDoctorsRepository, EFDoctorsRepository>();
             services.AddTransient<IPatientsRepository, EFPatientsRepository>();
             services.AddTransient<IProfsRepository, EFProfsRepository>();
+            services.AddTransient<IVisitsRepository, EFVisitsRepository>();
             services.AddTransient<DataManager>();
             
             //підключаємо контекст БД

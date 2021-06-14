@@ -1,0 +1,45 @@
+﻿@model Visit
+@{
+    string strTitle = "Редагувати прийом";
+    ViewBag.Title = strTitle;
+}
+
+<script src="~/js/ckeditor/ckeditor.js"></script>
+
+<div class="container">
+    <h2>@strTitle</h2>
+    <div>
+        <form asp-area="Admin" asp-controller="Visits" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="VisitId" />
+            <input type="hidden" asp-for="DateAdded" />
+
+            <div asp-validation-summary="All"></div>
+            <div class="div-box">
+                <label asp-for="DoctorId"></label>
+                <input asp-for="DoctorId" />
+                <span asp-validation-for="DoctorId"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="PatientId"></label>
+                <input asp-for="PatientId" />
+                <span asp-validation-for="PatientId"></span>
+            </div>
+            <div class="div-box">
+                <label asp-for="Text"></label>
+                <textarea asp-for="Text"></textarea>
+                <span asp-validation-for="Text"></span>
+            </div>
+            
+            <input type="submit" value="Зберегти" />
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+    window.onload = function() {
+        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
+        newCKEdit.updateElement();
+    }
+</script>

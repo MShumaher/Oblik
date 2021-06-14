@@ -18,7 +18,7 @@ namespace Oblik.Domain
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Prof> Profs { get; set; }
-
+        public DbSet<Visit> Visits { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -12,6 +12,8 @@
             <a asp-area="Admin" asp-controller="ServiceItems" asp-action="Edit" asp-route-id="">Додати послугу</a>
             <a asp-area="Admin" asp-controller="Doctors" asp-action="Edit" asp-route-id="">Додати лікаря</a>
             <a asp-area="Admin" asp-controller="Patients" asp-action="Edit" asp-route-id="">Додати медичну картку</a>
+            <a asp-area="Admin" asp-controller="Visits" asp-action="Edit" asp-route-id="">Додати прийом</a>
+
         </div>
         @if (Model.Any())
         {
@@ -40,7 +42,7 @@
         <a asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageServices">Наші послуги</a>
         <a asp-area="Admin" asp-controller="Doctors" asp-action="Edit">Лікарі</a>
         <a asp-area="Admin" asp-controller="Profs" asp-action="Edit">Profs</a>
-
+        <a asp-area="Admin" asp-controller="Visits" asp-action="Edit">Прийоми</a>
         <a asp-area="Admin" asp-controller="Patients" asp-action="Edit">Пацієнти</a>
         <a asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageContacts">Контакти</a>
     </div>

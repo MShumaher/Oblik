@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 namespace Oblik.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ProfsController : Controller
+    public class VisitsController : Controller
     {
         private readonly DataManager dataManager;
         private readonly IWebHostEnvironment hostingEnvironment;
-        public ProfsController(DataManager dataManager, IWebHostEnvironment hostingEnvironment)
+        public VisitsController(DataManager dataManager, IWebHostEnvironment hostingEnvironment)
         {
             this.dataManager = dataManager;
             this.hostingEnvironment = hostingEnvironment;
@@ -24,21 +24,25 @@ namespace Oblik.Areas.Admin.Controllers
 
         public IActionResult Edit(Guid id)
         {
-            var entity = id == default ? new Prof() : dataManager.Profs.GetProfById(id);
+            var entity = id == default ? new Visit() : dataManager.Visits.GetVisitById(id);
             return View(entity);
         }
-
-        
         [HttpPost]
-        public IActionResult Edit(Prof model)
+        public IActionResult Edit(Visit model)
         {
             if (ModelState.IsValid)
-            {                
-                dataManager.Profs.SaveProf(model);
+            {
+                dataManager.Visits.SaveVisit(model);
                 return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController());
             }
             return View(model);
         }
-                
+
+        [HttpPost]
+        public IActionResult Delete(Guid id)
+        {
+            dataManager.Visits.DeleteVisit(id);
+            return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController());
+        }
     }
 }
