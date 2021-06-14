@@ -24,12 +24,12 @@ namespace Oblik.Domain.Repositories.EntityFramework
 
         public Patient GetPatientById(Guid id)
         {
-            return context.Patients.FirstOrDefault(x => x.Id == id);
+            return context.Patients.FirstOrDefault(x => x.PatientId == id);
         }
 
         public void SavePatient(Patient entity)
         {
-            if (entity.Id == default)
+            if (entity.PatientId == default)
                 context.Entry(entity).State = EntityState.Added;
             else
                 context.Entry(entity).State = EntityState.Modified;
@@ -38,7 +38,7 @@ namespace Oblik.Domain.Repositories.EntityFramework
 
         public void DeletePatient(Guid id)
         {
-            context.Patients.Remove(new Patient() { Id = id });
+            context.Patients.Remove(new Patient() { PatientId = id });
             context.SaveChanges();
         }
     }

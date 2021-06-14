@@ -23,12 +23,12 @@ namespace Oblik.Domain.Repositories.EntityFramework
 
         public Doctor GetDoctorById(Guid id)
         {
-            return context.Doctors.FirstOrDefault(x => x.Id == id);
+            return context.Doctors.FirstOrDefault(x => x.DoctorId == id);
         }
 
         public void SaveDoctor(Doctor entity)
         {
-            if (entity.Id == default)
+            if (entity.DoctorId == default)
                 context.Entry(entity).State = EntityState.Added;
             else
                 context.Entry(entity).State = EntityState.Modified;
@@ -37,7 +37,7 @@ namespace Oblik.Domain.Repositories.EntityFramework
 
         public void DeleteDoctor(Guid id)
         {
-            context.Doctors.Remove(new Doctor() { Id = id });
+            context.Doctors.Remove(new Doctor() { DoctorId = id });
             context.SaveChanges();
         }
     }

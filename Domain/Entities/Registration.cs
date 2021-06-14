@@ -16,9 +16,6 @@ namespace Oblik.Domain.Entities
     {
         protected Registration() => DateAdded = DateTime.Now;
 
-        [Required]
-        public Guid Id { get; set; }
-
         // [Required (ErrorMessage ="Введіть прізвище та ініціали")]
         // [Display(Name = "ПрізвищеІП:")]
         //  public string CodeWord { get; set; }
@@ -72,7 +69,7 @@ namespace Oblik.Domain.Entities
         public virtual string Rhesus { get; set; }
 
         [Display(Name = "Документ")]
-        [StringLength(30, ErrorMessage = "Має бути 30 символів!")]
+        [StringLength(50, ErrorMessage = "Має бути не більше 50 символів!")]
         public virtual string DocumentType { get; set; }
 
         [Display(Name = "Номер")]

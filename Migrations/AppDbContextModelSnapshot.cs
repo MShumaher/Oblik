@@ -49,7 +49,7 @@ namespace Oblik.Migrations
                         new
                         {
                             Id = "5CB180AC-1325-444F-8177-D9A517162427",
-                            ConcurrencyStamp = "d274e226-89c8-402b-94d8-de33e36c47f8",
+                            ConcurrencyStamp = "468bcd26-22ae-42f9-8001-1dc7de617d87",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -148,13 +148,13 @@ namespace Oblik.Migrations
                         {
                             Id = "52D5A142-F7A2-428E-A603-3AFDC8C79206",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5cea0b75-b342-4e5c-9057-aa1301ec4fe9",
+                            ConcurrencyStamp = "64743cac-aa94-4389-b46f-82eadd3a9723",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAECxu0tUMoZ7j6/z35NvPMwx/nE97CNf7SPkl91tsQvTO3cFI1Gg7yjSiEqtM3xx1eA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKUGiXWGVSLDpnvy95/3N3Hl95C9ifqkzsc+XZUi8zmIMxdkd12TRBaaYVkUsKDOmQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -251,7 +251,7 @@ namespace Oblik.Migrations
 
             modelBuilder.Entity("Oblik.Domain.Entities.Doctor", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("DoctorId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -328,7 +328,7 @@ namespace Oblik.Migrations
                     b.Property<string>("TitleImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("DoctorId");
 
                     b.HasIndex("ProfID");
 
@@ -337,7 +337,7 @@ namespace Oblik.Migrations
 
             modelBuilder.Entity("Oblik.Domain.Entities.Patient", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("PatientId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -411,7 +411,7 @@ namespace Oblik.Migrations
                     b.Property<string>("TitleImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("PatientId");
 
                     b.ToTable("Patients");
                 });
@@ -513,7 +513,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2021, 6, 13, 23, 22, 18, 180, DateTimeKind.Local).AddTicks(2754),
+                            DateAdded = new DateTime(2021, 6, 14, 20, 40, 25, 57, DateTimeKind.Local).AddTicks(6392),
                             Text = "Содержание заполняется администратором",
                             Title = "Головна"
                         },
@@ -521,7 +521,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2021, 6, 13, 23, 22, 18, 181, DateTimeKind.Local).AddTicks(6365),
+                            DateAdded = new DateTime(2021, 6, 14, 20, 40, 25, 59, DateTimeKind.Local).AddTicks(3657),
                             Text = "Содержание заполняется администратором",
                             Title = "Послуги"
                         },
@@ -529,7 +529,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2021, 6, 13, 23, 22, 18, 181, DateTimeKind.Local).AddTicks(6437),
+                            DateAdded = new DateTime(2021, 6, 14, 20, 40, 25, 59, DateTimeKind.Local).AddTicks(3755),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакти"
                         });

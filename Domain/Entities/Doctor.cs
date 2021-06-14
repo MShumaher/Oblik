@@ -8,6 +8,9 @@ namespace Oblik.Domain.Entities
 {
     public class Doctor : Registration
     {
+        [Key]
+        [Required]
+        public virtual Guid DoctorId { get; set; }
 
         [Required]
         public Guid ProfID { get; set; }
