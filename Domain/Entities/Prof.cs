@@ -17,5 +17,9 @@ namespace Oblik.Domain.Entities
         public virtual string ProfName { get; set; }
                 
         public ICollection<Doctor> Doctors { get; set; }
+        public Prof()
+        {
+            Doctors = new List<Doctor>();
+        }
     }
 }

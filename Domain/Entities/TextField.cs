@@ -11,10 +11,10 @@ namespace Oblik.Domain.Entities
         [Required]
         public string CodeWord { get; set; }
 
-        [Display(Name = "Название страницы (звголовок)")]
-        public override string Title { get; set; } = "Информационная страница";
+        [Display(Name = "Назва сторінки (звголовок)")]
+        public override string Title { get; set; } = "Інформаційна сторінка";
 
-        [Display(Name = "Содержание страницы")]
-        public override string Text { get; set; } = "Содержание заполняется администратором";
+        [Display(Name = "Зміст сторінки")]
+        public override string Text { get; set; } = "Зміст заповнюється адміністратором";
     }
 }

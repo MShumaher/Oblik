@@ -13,10 +13,10 @@ namespace Oblik.Domain.Entities
         public virtual Guid DoctorId { get; set; }
 
         [Required]
+        [Display(Name = "Спеціалізація:")]
         public Guid ProfID { get; set; }
 
         //[Required(ErrorMessage = "Спеціалізація")]
-        [Display(Name = "Спеціалізація:")]
         public Prof Prof { get; set; }
 
         public ICollection<Visit> Visits { get; set; }

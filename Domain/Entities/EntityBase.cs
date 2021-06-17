@@ -13,16 +13,16 @@ namespace Oblik.Domain.Entities
         [Required]
         public Guid Id { get; set; }
 
-        [Display(Name = "Название (заголовок)")]
+        [Display(Name = "Назва (заголовок)")]
         public virtual string Title { get; set; }
 
-        [Display(Name = "Краткое описание")]
+        [Display(Name = "Короткий опис")]
         public virtual string Subtitle { get; set; }
 
-        [Display(Name = "Полное описание")]
+        [Display(Name = "Розгорнутий опис")]
         public virtual string Text { get; set; }
 
-        [Display(Name = "Титульная картинка")]
+        [Display(Name = "Титульне зображення")]
         public virtual string TitleImagePath { get; set; }
 
         [Display(Name = "SEO метатег Title")]

@@ -61,7 +61,7 @@ namespace Oblik.Migrations
                     Email = table.Column<string>(nullable: true),
                     BloodType = table.Column<int>(nullable: true),
                     Rhesus = table.Column<string>(maxLength: 1, nullable: true),
-                    DocumentType = table.Column<string>(maxLength: 30, nullable: true),
+                    DocumentType = table.Column<string>(maxLength: 50, nullable: true),
                     NumbDocument = table.Column<string>(maxLength: 20, nullable: true),
                     SerialDocument = table.Column<string>(maxLength: 4, nullable: true),
                     Rknopp = table.Column<string>(maxLength: 10, nullable: true),
@@ -249,7 +249,7 @@ namespace Oblik.Migrations
                     Email = table.Column<string>(nullable: true),
                     BloodType = table.Column<int>(nullable: true),
                     Rhesus = table.Column<string>(maxLength: 1, nullable: true),
-                    DocumentType = table.Column<string>(maxLength: 30, nullable: true),
+                    DocumentType = table.Column<string>(maxLength: 50, nullable: true),
                     NumbDocument = table.Column<string>(maxLength: 20, nullable: true),
                     SerialDocument = table.Column<string>(maxLength: 4, nullable: true),
                     Rknopp = table.Column<string>(maxLength: 10, nullable: true),
@@ -271,24 +271,51 @@ namespace Oblik.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Visits",
+                columns: table => new
+                {
+                    VisitId = table.Column<Guid>(nullable: false),
+                    DateAdded = table.Column<DateTime>(nullable: false),
+                    DoctorId = table.Column<Guid>(nullable: false),
+                    PatientId = table.Column<Guid>(nullable: false),
+                    Text = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Visits", x => x.VisitId);
+                    table.ForeignKey(
+                        name: "FK_Visits_Doctors_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "Doctors",
+                        principalColumn: "DoctorId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Visits_Patients_PatientId",
+                        column: x => x.PatientId,
+                        principalTable: "Patients",
+                        principalColumn: "PatientId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "5CB180AC-1325-444F-8177-D9A517162427", "468bcd26-22ae-42f9-8001-1dc7de617d87", "admin", "ADMIN" });
+                values: new object[] { "5CB180AC-1325-444F-8177-D9A517162427", "791f4eb2-b431-4896-ab2c-ed27ae847290", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "52D5A142-F7A2-428E-A603-3AFDC8C79206", 0, "64743cac-aa94-4389-b46f-82eadd3a9723", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEKUGiXWGVSLDpnvy95/3N3Hl95C9ifqkzsc+XZUi8zmIMxdkd12TRBaaYVkUsKDOmQ==", null, false, "", false, "admin" });
+                values: new object[] { "52D5A142-F7A2-428E-A603-3AFDC8C79206", 0, "b4b98ef2-f872-4792-98fa-fb730b448d06", "my@email.com", true, false, null, "MY@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAENrf6sQwaZJomwS1162T2VIzg53rCqaIsHDrmHXlbN95AFoUCvSgKePGV7qJz0U5NA==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "TextFields",
                 columns: new[] { "Id", "CodeWord", "DateAdded", "MetaDescription", "MetaKeywords", "MetaTitle", "Subtitle", "Text", "Title", "TitleImagePath" },
                 values: new object[,]
                 {
-                    { new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"), "PageIndex", new DateTime(2021, 6, 14, 20, 40, 25, 57, DateTimeKind.Local).AddTicks(6392), null, null, null, null, "Содержание заполняется администратором", "Головна", null },
-                    { new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"), "PageServices", new DateTime(2021, 6, 14, 20, 40, 25, 59, DateTimeKind.Local).AddTicks(3657), null, null, null, null, "Содержание заполняется администратором", "Послуги", null },
-                    { new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"), "PageContacts", new DateTime(2021, 6, 14, 20, 40, 25, 59, DateTimeKind.Local).AddTicks(3755), null, null, null, null, "Содержание заполняется администратором", "Контакти", null }
+                    { new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"), "PageIndex", new DateTime(2021, 6, 15, 21, 10, 56, 174, DateTimeKind.Local).AddTicks(9691), null, null, null, null, "Содержание заполняется администратором", "Головна", null },
+                    { new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"), "PageServices", new DateTime(2021, 6, 15, 21, 10, 56, 175, DateTimeKind.Local).AddTicks(8999), null, null, null, null, "Содержание заполняется администратором", "Послуги", null },
+                    { new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"), "PageContacts", new DateTime(2021, 6, 15, 21, 10, 56, 175, DateTimeKind.Local).AddTicks(9066), null, null, null, null, "Содержание заполняется администратором", "Контакти", null }
                 });
 
             migrationBuilder.InsertData(
@@ -339,6 +366,16 @@ namespace Oblik.Migrations
                 name: "IX_Doctors_ProfID",
                 table: "Doctors",
                 column: "ProfID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visits_DoctorId",
+                table: "Visits",
+                column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visits_PatientId",
+                table: "Visits",
+                column: "PatientId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -359,22 +396,25 @@ namespace Oblik.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Doctors");
-
-            migrationBuilder.DropTable(
-                name: "Patients");
-
-            migrationBuilder.DropTable(
                 name: "ServiceItems");
 
             migrationBuilder.DropTable(
                 name: "TextFields");
 
             migrationBuilder.DropTable(
+                name: "Visits");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Doctors");
+
+            migrationBuilder.DropTable(
+                name: "Patients");
 
             migrationBuilder.DropTable(
                 name: "Profs");

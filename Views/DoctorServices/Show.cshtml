@@ -1,5 +1,5 @@
 ﻿@model Doctor
-@{ 
+@{
     ViewBag.Title = Model.MetaTitle;
     ViewBag.Description = Model.MetaDescription;
     ViewBag.Keywords = Model.MetaKeywords;
@@ -7,15 +7,25 @@
 
 <div class="container">
     <h2>
-        @Model.Name
+        @Model.Surname @Model.Name @Model.FatherName
     </h2>
-    <h3>
-        @Model.Surname
-    </h3>
     <div>
-        <img class="img-block" src="~/images/@Model.TitleImagePath" />
+        <img class="img-block" src="~/images/@Model.TitleImagePath" align="left" vspace="5" hspace="5" />
     </div>
-</div>
-<div class="container">
-    @Html.Raw(Model.Text)
+    <h3>
+        @Model.Prof
+        @Model.Sex @Model.Birthday
+        @Model.BloodType @Model.Rhesus
+    </h3>
+    <div class="container">
+        @Html.Raw(Model.Text)
+    </div>
+    <h4>
+        @Model.DocumentType
+        @Model.SerialDocument @Model.NumbDocument
+        @Model.Rknopp
+    </h4>
+    <h4>
+        @Model.TelNumb @Model.Email
+    </h4>
 </div>

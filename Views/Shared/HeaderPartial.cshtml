@@ -6,8 +6,14 @@
     <nav id="nav">
         <ul>
             <li class="current"><a asp-area="" asp-controller="Home" asp-action="Index">Головна</a></li>
+            <li><a asp-area="" asp-controller="Admin" asp-action="Index">Адміністратор</a></li>
+            <li><a asp-area="" asp-controller="PatientServices" asp-action="Index">Реєстратура</a></li>
+            <li><a asp-area="" asp-controller="DoctorServices" asp-action="Index">Лікарі</a></li>
+            <li><a asp-area="" asp-controller="VisitServices" asp-action="Index">Прийоми</a></li>
+            <li><a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="">Послуги</a></li>
+
             <li>
-                <a href="#">Dropdown</a>
+                <a href="#">Звіти</a>
                 <ul>
                     <li><a href="#">Lorem dolor</a></li>
                     <li><a href="#">Magna phasellus</a></li>
@@ -25,12 +31,6 @@
                     <li><a href="#">Veroeros feugiat</a></li>
                 </ul>
             </li>
-            <li><a asp-area="" asp-controller="PatientServices" asp-action="Index">Реєстратура</a></li>
-            <li><a asp-area="" asp-controller="VisitServices" asp-action="Index">Прийоми</a></li>
-
-            <li><a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="">Послуги</a></li>
-            <li><a asp-area="" asp-controller="DoctorServices" asp-action="Index">Лікарі</a></li>
-            <li><a asp-area="" asp-controller="Admin" asp-action="Index">Адміністратор</a></li>
             <li><a asp-area="" asp-controller="Home" asp-action="Contacts">Контакти</a></li>
         </ul>
     </nav>

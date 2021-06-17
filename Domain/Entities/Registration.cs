@@ -11,7 +11,6 @@ namespace Oblik.Domain.Entities
         I = 1, II = 2, III = 3, IV = 4
     }
 
-
     public class Registration
     {
         protected Registration() => DateAdded = DateTime.Now;

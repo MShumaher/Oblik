@@ -11,7 +11,6 @@ namespace Oblik.Domain.Entities
         [Key]
         [Required]
         public virtual Guid PatientId { get; set; }
-
         public ICollection<Visit> Visits { get; set; }
 
     }

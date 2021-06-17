@@ -10,7 +10,7 @@ using Oblik.Domain;
 namespace Oblik.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210614174025__initial")]
+    [Migration("20210615181056__initial")]
     partial class _initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace Oblik.Migrations
                         new
                         {
                             Id = "5CB180AC-1325-444F-8177-D9A517162427",
-                            ConcurrencyStamp = "468bcd26-22ae-42f9-8001-1dc7de617d87",
+                            ConcurrencyStamp = "791f4eb2-b431-4896-ab2c-ed27ae847290",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -150,13 +150,13 @@ namespace Oblik.Migrations
                         {
                             Id = "52D5A142-F7A2-428E-A603-3AFDC8C79206",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "64743cac-aa94-4389-b46f-82eadd3a9723",
+                            ConcurrencyStamp = "b4b98ef2-f872-4792-98fa-fb730b448d06",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKUGiXWGVSLDpnvy95/3N3Hl95C9ifqkzsc+XZUi8zmIMxdkd12TRBaaYVkUsKDOmQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENrf6sQwaZJomwS1162T2VIzg53rCqaIsHDrmHXlbN95AFoUCvSgKePGV7qJz0U5NA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -267,8 +267,8 @@ namespace Oblik.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DocumentType")
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -353,8 +353,8 @@ namespace Oblik.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DocumentType")
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -515,7 +515,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2021, 6, 14, 20, 40, 25, 57, DateTimeKind.Local).AddTicks(6392),
+                            DateAdded = new DateTime(2021, 6, 15, 21, 10, 56, 174, DateTimeKind.Local).AddTicks(9691),
                             Text = "Содержание заполняется администратором",
                             Title = "Головна"
                         },
@@ -523,7 +523,7 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2021, 6, 14, 20, 40, 25, 59, DateTimeKind.Local).AddTicks(3657),
+                            DateAdded = new DateTime(2021, 6, 15, 21, 10, 56, 175, DateTimeKind.Local).AddTicks(8999),
                             Text = "Содержание заполняется администратором",
                             Title = "Послуги"
                         },
@@ -531,10 +531,37 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2021, 6, 14, 20, 40, 25, 59, DateTimeKind.Local).AddTicks(3755),
+                            DateAdded = new DateTime(2021, 6, 15, 21, 10, 56, 175, DateTimeKind.Local).AddTicks(9066),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакти"
                         });
+                });
+
+            modelBuilder.Entity("Oblik.Domain.Entities.Visit", b =>
+                {
+                    b.Property<Guid>("VisitId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DoctorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("VisitId");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("Visits");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -593,6 +620,21 @@ namespace Oblik.Migrations
                     b.HasOne("Oblik.Domain.Entities.Prof", "Prof")
                         .WithMany("Doctors")
                         .HasForeignKey("ProfID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Oblik.Domain.Entities.Visit", b =>
+                {
+                    b.HasOne("Oblik.Domain.Entities.Doctor", "Doctor")
+                        .WithMany("Visits")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Oblik.Domain.Entities.Patient", "Patient")
+                        .WithMany("Visits")
+                        .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

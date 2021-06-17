@@ -28,6 +28,8 @@ namespace Oblik.Areas.Admin.Controllers
             var entity = id == default ? new Doctor() : dataManager.Doctors.GetDoctorById(id);
             return View(entity);
         }
+              
+        
         [HttpPost]
         public IActionResult Edit(Doctor model, IFormFile titleImageFile)
         {
@@ -46,7 +48,7 @@ namespace Oblik.Areas.Admin.Controllers
             }
             return View(model);
         }
-
+                
         [HttpPost]
         public IActionResult Delete(Guid id)
         {
