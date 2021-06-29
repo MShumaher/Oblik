@@ -2,7 +2,7 @@
 @{
     TextField textField = ViewBag.TextField;
 
-    ViewBag.Title = textField.MetaTitle;
+    ViewBag.Keywords = textField.MetaKeywords;
     ViewBag.Description = textField.MetaDescription;
     ViewBag.Keywords = textField.MetaKeywords;
 }
@@ -16,8 +16,9 @@
             <div class="row">
                 <section class="col-6 col-12-narrower">
                     <div class="box post">
-                        <a class ="image left" asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id">
-                            <img src="/images/@entity.TitleImagePath" alt="" class="left" /></a>
+                        <a class="image left" asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id">
+                            <img src="/images/@entity.TitleImagePath" alt="" class="left" />
+                        </a>
                         <div class="inner">
                             <h3>@entity.Title</h3>
                             <p>@entity.Subtitle</p>
@@ -25,7 +26,7 @@
                     </div>
                 </section>
             </div>
-            
+
         </div>
     </section>
     }

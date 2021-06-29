@@ -31,7 +31,9 @@ namespace Oblik
             //підключаємо необхідний функціонал додатку в якості сервісів
             services.AddTransient<ITextFieldsRepository, EFTextFieldsRepository>();
             services.AddTransient<IServiceItemsRepository, EFServiceItemsRepository>();
+            services.AddTransient<IDoctorsRepository, EFDoctorsRepository>();
             services.AddTransient<IPatientsRepository, EFPatientsRepository>();
+            services.AddTransient<IProfsRepository, EFProfsRepository>();
             services.AddTransient<DataManager>();
             
             //підключаємо контекст БД

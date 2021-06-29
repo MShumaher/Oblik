@@ -1,0 +1,21 @@
+﻿@model Doctor
+@{ 
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeywords;
+}
+
+<div class="container">
+    <h2>
+        @Model.Name
+    </h2>
+    <h3>
+        @Model.Surname
+    </h3>
+    <div>
+        <img class="img-block" src="~/images/@Model.TitleImagePath" />
+    </div>
+</div>
+<div class="container">
+    @Html.Raw(Model.Text)
+</div>

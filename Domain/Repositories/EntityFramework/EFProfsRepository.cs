@@ -8,37 +8,30 @@ using System.Threading.Tasks;
 
 namespace Oblik.Domain.Repositories.EntityFramework
 {
-    
-    public class EFPatientsRepository : IPatientsRepository
+    public class EFProfsRepository : IProfsRepository
     {
         private readonly AppDbContext context;
-        public EFPatientsRepository(AppDbContext context)
+        public EFProfsRepository(AppDbContext context)
         {
             this.context = context;
         }
 
-        public IQueryable<Patient> GetPatients()
+        public IQueryable<Prof> GetProfs()
         {
-            return context.Patients;
+            return context.Profs;
         }
 
-        public Patient GetPatientById(Guid id)
+        public Prof GetProfById(int id)
         {
-            return context.Patients.FirstOrDefault(x => x.Id == id);
+            return context.Profs.FirstOrDefault(x => x.ProfId == id);
         }
 
-        public void SavePatient(Patient entity)
+        public void SaveProf(Prof entity)
         {
-            if (entity.Id == default)
+            if (entity.ProfId == default)
                 context.Entry(entity).State = EntityState.Added;
             else
                 context.Entry(entity).State = EntityState.Modified;
-            context.SaveChanges();
-        }
-
-        public void DeletePatient(Guid id)
-        {
-            context.Patients.Remove(new Patient() { Id = id });
             context.SaveChanges();
         }
     }

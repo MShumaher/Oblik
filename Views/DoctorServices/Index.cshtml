@@ -1,0 +1,29 @@
+﻿@model IQueryable<Doctor>
+
+
+@if (Model.Any())
+{
+    foreach (Doctor entity in Model)
+    {
+    <section class="wrapper style1">
+        <div class="container">
+            <div class="row">
+                <section class="col-6 col-12-narrower">
+                    <div class="box post">
+                        <a class="image left" asp-area="" asp-controller="DoctorServices" asp-action="Index" asp-route-id="@entity.Id">
+                            <img src="/images/@entity.TitleImagePath" alt="" class="left" />                            
+                        </a>
+                        <a asp-area="" asp-controller="DoctorServices" asp-action="Index" asp-route-id="@entity.Id">
+                        <div class="inner">
+                            <h3>@entity.Surname</h3>
+                            <p>@entity.Name @entity.FatherName</p>
+                        </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </section>
+    }
+}

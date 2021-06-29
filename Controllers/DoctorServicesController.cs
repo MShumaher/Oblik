@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Oblik.Controllers
 {
-    public class PatientsController : Controller
+    public class DoctorServicesController : Controller
     {
         private readonly DataManager dataManager;
 
-        public PatientsController(DataManager dataManager)
+        public DoctorServicesController(DataManager dataManager)
         {
             this.dataManager = dataManager;
         }
@@ -19,11 +19,11 @@ namespace Oblik.Controllers
         {
             if (id != default)
             {
-                return View("Show", dataManager.Patients.GetPatientById(id));
+                return View("Show", dataManager.Doctors.GetDoctorById(id));
             }
-            //TODO 
-            ViewBag.TextField = dataManager.TextFields.GetTextFieldByCodeWord("PagePatients");
-            return View(dataManager.Patients.GetPatients());
+
+            //ViewBag.TextField = dataManager.TextFields.GetTextFieldByCodeWord("PageServices");
+            return View(dataManager.Doctors.GetDoctors());
         }
     }
 }

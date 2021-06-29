@@ -10,7 +10,7 @@ using Oblik.Domain;
 namespace Oblik.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210523194817__initial")]
+    [Migration("20210613112451__initial")]
     partial class _initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace Oblik.Migrations
                         new
                         {
                             Id = "5CB180AC-1325-444F-8177-D9A517162427",
-                            ConcurrencyStamp = "f357992f-5c25-4841-abfc-032f74a05cdf",
+                            ConcurrencyStamp = "a80c0caa-bba0-4f3d-9470-999d9c6f0439",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -150,13 +150,13 @@ namespace Oblik.Migrations
                         {
                             Id = "52D5A142-F7A2-428E-A603-3AFDC8C79206",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "930b5633-e233-400a-a6df-c07ebfbd630d",
+                            ConcurrencyStamp = "8c82d506-b013-4ebb-9670-c24140a50d6c",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG4FVrywSQRV7sMQoyh4NQ+9wul4AaJVfhYCbCY1Iz5G+CNukEJgCc8yi+TTc+8gNQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAjeXb8VnN0EXUcHL1vyWjPCgd/DkFc6TfXk4xXqp9R8z9Vv5MICCIWdmn7c7tHQCQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -251,6 +251,195 @@ namespace Oblik.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Oblik.Domain.Entities.Doctor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("BloodType")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DocumentType")
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FatherName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("MetaDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywords")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("NumbDocument")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<int>("ProfID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Rhesus")
+                        .HasColumnType("nvarchar(1)")
+                        .HasMaxLength(1);
+
+                    b.Property<string>("Rknopp")
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
+
+                    b.Property<string>("SerialDocument")
+                        .HasColumnType("nvarchar(4)")
+                        .HasMaxLength(4);
+
+                    b.Property<string>("Sex")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("TelNumb")
+                        .HasColumnType("nvarchar(9)")
+                        .HasMaxLength(9);
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProfID");
+
+                    b.ToTable("Doctors");
+                });
+
+            modelBuilder.Entity("Oblik.Domain.Entities.Patient", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("BloodType")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DocumentType")
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FatherName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("MetaDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywords")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("NumbDocument")
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("Rhesus")
+                        .HasColumnType("nvarchar(1)")
+                        .HasMaxLength(1);
+
+                    b.Property<string>("Rknopp")
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
+
+                    b.Property<string>("SerialDocument")
+                        .HasColumnType("nvarchar(4)")
+                        .HasMaxLength(4);
+
+                    b.Property<string>("Sex")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Specialization")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("TelNumb")
+                        .HasColumnType("nvarchar(9)")
+                        .HasMaxLength(9);
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Patients");
+                });
+
+            modelBuilder.Entity("Oblik.Domain.Entities.Prof", b =>
+                {
+                    b.Property<int>("ProfId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ProfName")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("ProfId");
+
+                    b.ToTable("Profs");
+                });
+
             modelBuilder.Entity("Oblik.Domain.Entities.ServiceItem", b =>
                 {
                     b.Property<Guid>("Id")
@@ -330,25 +519,25 @@ namespace Oblik.Migrations
                         {
                             Id = new Guid("ef86a70c-be92-4255-bda3-ee43b6fb401d"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2021, 5, 23, 22, 48, 17, 521, DateTimeKind.Local).AddTicks(9315),
+                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 21, DateTimeKind.Local).AddTicks(1254),
                             Text = "Содержание заполняется администратором",
-                            Title = "Главная"
+                            Title = "Головна"
                         },
                         new
                         {
                             Id = new Guid("419ad9ba-4570-4325-80d6-edfd965ace14"),
                             CodeWord = "PageServices",
-                            DateAdded = new DateTime(2021, 5, 23, 22, 48, 17, 523, DateTimeKind.Local).AddTicks(1503),
+                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3676),
                             Text = "Содержание заполняется администратором",
-                            Title = "Наши услуги"
+                            Title = "Послуги"
                         },
                         new
                         {
                             Id = new Guid("1e82fb54-c4f1-49d1-a229-3ddf578b8ddc"),
                             CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2021, 5, 23, 22, 48, 17, 523, DateTimeKind.Local).AddTicks(1593),
+                            DateAdded = new DateTime(2021, 6, 13, 14, 24, 51, 22, DateTimeKind.Local).AddTicks(3749),
                             Text = "Содержание заполняется администратором",
-                            Title = "Контакты"
+                            Title = "Контакти"
                         });
                 });
 
@@ -399,6 +588,15 @@ namespace Oblik.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Oblik.Domain.Entities.Doctor", b =>
+                {
+                    b.HasOne("Oblik.Domain.Entities.Prof", "Prof")
+                        .WithMany("Doctors")
+                        .HasForeignKey("ProfID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
